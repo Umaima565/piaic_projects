@@ -1,23 +1,24 @@
-import random
+import random 
 
 def play():
-    print("Lets play rock, paper and scissor")
-    user = input("'r' for rock, 'p' for paper and 's' for scissor: ")
-    computer = random.choice(['r', 'p', 's'])
+    print("Let's play Rock, Paper, Scissors!")  # Game start message
+    
+    # Taking user input for their choice
+    user = input("'r' for Rock, 'p' for Paper, 's' for Scissors: ")  
+    computer = random.choice(['r', 'p', 's'])  # Randomly choosing for the computer
 
     if user == computer:
-      return 'Its a tie!'
+        return "It's a tie!"  # If both choose the same, it's a tie
 
+    if win(user, computer):  
+        return "You won!!"  # If user wins, return winning message
 
-    if win(user, computer):
-        return 'You won!!'
-
-    else:
-        return 'You lost!!'
+    return "You lost!!"  # Otherwise, the user lost
 
 def win(player, opponent):
-    if(player == 'r' and opponent == 's') or (player == 's' and opponent == 'p') \
-      or (player == 'p' and opponent == 'r'):
-      return True
+    # Checking the winning conditions
+    return (player == 'r' and opponent == 's') or \
+           (player == 's' and opponent == 'p') or \
+           (player == 'p' and opponent == 'r')
 
-print(play())
+print(play())  # Running the game
